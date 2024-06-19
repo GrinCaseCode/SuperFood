@@ -48,7 +48,7 @@ $(".menu-overlay").click(function() {
 		dots: false,
 		infinite: false,
 		touchThreshold: 1000,
-		slidesToShow: 5,
+		slidesToShow: 3,
 		slidesToScroll: 1,
 		variableWidth: true,
 		prevArrow: '<div class="slick-prev slick-arrow"><i class="fas fa-chevron-left"></i><div/>',
@@ -153,6 +153,7 @@ rev.slick({
 			infinite: false,
 			variableWidth: true,
 			centerMode: false,
+			autoplay: false,
 		}
 	}
 ]
@@ -167,6 +168,11 @@ $('.tabs li a').click(function(event) {
 	var selectTab = $(this).attr("href");
 	$(selectTab).fadeIn(200);
 	$(this).parents().find('.slider-about').slick('setPosition');
+});
+
+
+$(".btn-like").click(function() {
+	$(this).toggleClass("active");
 });
 
 	$(".input-phone").mask("+7 (999) 999-99-99");
