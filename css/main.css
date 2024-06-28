@@ -1520,7 +1520,25 @@ form {
 	visibility: hidden;
 	z-index: 1;
 	opacity: 0;
+	overflow: auto;
 	transition: all 0.3s;
+}
+.hint__content::-webkit-scrollbar {
+	-webkit-appearance: none;
+}
+.hint__content::-webkit-scrollbar:vertical {
+	width: 3px;
+}
+.hint__content::-webkit-scrollbar:horizontal {
+	height: 3px;
+}
+.hint__content::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, .5);
+	border-radius: 10px;
+}
+.hint__content::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: #ccc;
 }
 .hint__content strong {
 	font-weight: 500;
