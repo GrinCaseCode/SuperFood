@@ -2104,8 +2104,14 @@
         background: #fff;
         margin-bottom: 8px;
     }
-    .basket-main__content .hint__content::before {
+    .hint__content::before {
         display: none;
+    }
+    .hint__content {
+        border-radius: 8px;
+        filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
+        background: #fff;
+        margin-bottom: 8px;
     }
 }
 
