@@ -75,7 +75,7 @@ $(".menu-overlay").click(function() {
 		]
 	});
 
-	$('.tabs').slick({
+	$('.tabs:not(.no-tabs)').slick({
 		arrows: true,
 		dots: false,
 		infinite: false,
@@ -91,7 +91,7 @@ $(".menu-overlay").click(function() {
 
 {
 	if ($(window).width() > 992) {
-		$('.tabs').slick("unslick");
+		$('.tabs:not(.no-tabs)').slick("unslick");
 	}
 }
 
@@ -145,7 +145,6 @@ rev.slick({
   customPaging: function(slider, i) {
     return '';
   },
-  /*infinite: false,*/
   responsive: [
 	{
 		breakpoint: 992,
@@ -159,23 +158,157 @@ rev.slick({
 ]
 });
 
+$('.slider-for').slick({
+	arrows: false,
+	dots: false,
+	infinite: true,
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	asNavFor: '.slider-nav',
+	touchThreshold: 1000,
+	prevArrow: '<div class="slick-prev slick-arrow"><i class="fas fa-chevron-left"></i><div/>',
+	nextArrow: '<div class="slick-next slick-arrow"><i class="fas fa-chevron-right"></i><div/>',
+});
 
-$('.tabs li a').click(function(event) {
-	event.preventDefault();
-	$(this).parents().find("li").removeClass('active');
-	$(this).parent().addClass('active');
-	$(this).parents().find(".tab-pane").fadeOut(0);
-	var selectTab = $(this).attr("href");
-	$(selectTab).fadeIn(200);
-	$(this).parents().find('.slider-about').slick('setPosition');
+$('.slider-nav').slick({
+	arrows: true,
+	dots: false,
+	infinite: true,
+	slidesToShow: 3,
+	slidesToScroll: 1,
+	asNavFor: '.slider-for',
+	touchThreshold: 1000,
+	vertical: true,
+	verticalSwiping: true,
+	focusOnSelect: true,
+	prevArrow: '<div class="slick-prev slick-arrow"><i class="fas fa-chevron-left"></i><div/>',
+	nextArrow: '<div class="slick-next slick-arrow"><i class="fas fa-chevron-right"></i><div/>',
+	responsive: [
+		{
+			breakpoint: 992,
+			settings: {
+				vertical: false,
+				verticalSwiping: false,
+			}
+		}
+	]
+});
+
+$(".sidebar-catalog .item-sidebar__head").click(function() {
+	$(this).parent().siblings().removeClass("active");
+	$(this).parent().siblings().find(".item-sidebar__content").slideUp(200);
+	$(this).parent().toggleClass("active");
+	$(this).siblings(".item-sidebar__content").slideToggle(200);
 });
 
 
-$(".btn-like").click(function() {
-	$(this).toggleClass("active");
+$(".next-sidebar").click(function() {
+    var current = $(this).parent().parent();
+    var next = current.next(".item-sidebar");
+	current.slideUp(200);
+	if (next.length) {
+		next.slideDown(200);
+	} else {
+		$(".item-sidebar:first-child").slideDown(200);
+	}
 });
+
+$(".prev-sidebar").click(function() {
+    var current = $(this).parent().parent();
+    var prev = current.prev(".item-sidebar");
+    current.slideUp(200);
+    if (prev.length) {
+		prev.slideDown(200);
+	} else {
+		$(".item-sidebar").last().slideDown(200);
+	}
+});
+
+$(".more-checkbox").click(function(e) {
+	e.preventDefault();
+	if ($(this).siblings(".list-checkboxes .checkbox:nth-child(n+6)").is(":hidden")) {
+		$(this).siblings(".list-checkboxes .checkbox:nth-child(n+6)").slideDown(200);
+		$(this).find("span").html("Свернуть"); 
+		$(this).addClass("active");
+	} else {
+		$(this).siblings(".list-checkboxes .checkbox:nth-child(n+6)").slideUp(200);
+		$(this).find("span").html("Показать ещё");
+		$(this).removeClass("active");
+	}
+});
+
+
+	$('.tabs:not(.no-tabs) li a').click(function(event) {
+		event.preventDefault();
+		$(this).parents().find("li").removeClass('active');
+		$(this).parent().addClass('active');
+		$(this).parents().find(".tab-pane").fadeOut(0);
+		var selectTab = $(this).attr("href");
+		$(selectTab).fadeIn(200);
+		$(this).parents().find('.slider-about').slick('setPosition');
+	});
+
+	$(".hint").click(function(e) {
+		e.preventDefault();
+		if ($(this).find(".hint__content").is(":hidden")) {
+			$(this).find(".hint__content").fadeIn(200);
+		} else {
+			$(this).find(".hint__content").fadeOut(200);
+		}
+	});
+
+
+
+	$(".personal-input__edit").click(function() {
+		$(this).siblings("input").prop('disabled', false);
+		$(this).siblings("input").focus();
+	});
+
+
+	$(document).mouseup(function (e) {
+		var hintContainer = $(".hint__content");
+		if (hintContainer.has(e.target).length === 0){
+		  hintContainer.fadeOut(200);
+		}
+	  });
+
+
+	$(".btn-like").click(function() {
+		$(this).toggleClass("active");
+	});
 
 	$(".input-phone").mask("+7 (999) 999-99-99");
+
+	jQuery('.quantity').each(function() {
+		var spinner = jQuery(this),
+		input = spinner.find('input[type="number"]'),
+		btnUp = spinner.find('.quantity-up'),
+		btnDown = spinner.find('.quantity-down'),
+		min = input.attr('min'),
+		max = input.attr('max');
+
+		btnUp.click(function() {
+			var oldValue = parseFloat(input.val());
+			if (oldValue >= max) {
+				var newVal = oldValue;
+			} else {
+				var newVal = oldValue + 1;
+			}
+			spinner.find("input").val(newVal);
+			spinner.find("input").trigger("change");
+		});
+
+		btnDown.click(function() {
+			var oldValue = parseFloat(input.val());
+			if (oldValue <= min) {
+				var newVal = oldValue;
+			} else {
+				var newVal = oldValue - 1;
+			}
+			spinner.find("input").val(newVal);
+			spinner.find("input").trigger("change");
+		});
+	});
 
 
 	 // стайлер для select
