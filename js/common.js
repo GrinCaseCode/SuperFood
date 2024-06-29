@@ -24,7 +24,7 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
 
 //кнопка sandwich
 $(".sandwich").click(function() {
-	if ($(".menu-mobile").is(":hidden")) {
+	if ($(".menu-mobile").is(":hidden")) { 
 		$(".menu-mobile").slideDown(200);
 		$(".menu-overlay").fadeIn(200);
 		$(this).addClass("active");
