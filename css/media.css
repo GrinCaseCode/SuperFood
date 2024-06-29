@@ -2116,6 +2116,17 @@
         margin-top: 20px;
         line-height: 143%;
     }
+    .title-table {
+        padding-right: 43px;
+    }
+    .page-personal .tabs a {
+        max-width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    .history-block .detail-table strong {
+        margin: 0;
+    }
 }
 
 /* Small Devices, Tablets */
