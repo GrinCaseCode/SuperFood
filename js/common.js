@@ -19,7 +19,9 @@ if ( $(this).scrollTop() > 0 && $menu.hasClass("default") ){
   }
 
 	//плавный скролл
-	$(".navigat li a").mPageScroll2id();
+	$(".hint_scroll").mPageScroll2id({
+		offset: 120
+	});
 
 
 //кнопка sandwich
@@ -248,7 +250,7 @@ $(".more-checkbox").click(function(e) {
 		$(this).parents().find('.slider-about').slick('setPosition');
 	});
 
-	$(".hint").click(function(e) {
+	$(".hint:not(.hint_scroll)").click(function(e) {
 		e.preventDefault();
 		if ($(this).find(".hint__content").is(":hidden")) {
 			$(this).find(".hint__content").fadeIn(200);
