@@ -68,9 +68,6 @@ h1,h2,h3,h4,h5,h6 {
 	margin: 0;
 	font-weight: normal;
 }
-.wrapper {
-	padding-top: 140px;
-}
 a {
 	text-decoration: none;
 	outline: none;
@@ -101,11 +98,11 @@ form {
 .header {
 	padding-bottom: 13px;
 	box-shadow: 0 8px 15px rgba(217, 217, 217, 0.3);
-	position: fixed;
+	position: relative;
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 1000;
+	z-index: 100;
 	background: #fff;
 }
 .header__top {
@@ -1986,6 +1983,7 @@ input[type=number]
 }
 .item-form {
 	margin-bottom: 14px;
+	position: relative;
 }
 .item-form textarea,
 .item-form input {
@@ -2005,6 +2003,14 @@ input[type=number]
 	height: 114px;
 	padding-top: 10px;
 	resize: none;
+}
+.item-form__error {
+	font-size: 13px;
+	top: 100%;
+	left: 0;
+	color: red;
+	display: none;
+	position: absolute;
 }
 .row.row_form .row,
 .row.row_form {
@@ -2600,4 +2606,33 @@ input[type=number]
 }
 .page-basket .bonus-account {
 	margin-top: 60px;
+}
+.header-fixed {
+	padding: 15px 0;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	width: 100%;
+	top: 0;
+	background: #fff;
+	box-shadow: 0 8px 15px rgba(217, 217, 217, 0.3);
+	transition: all 0.5s;
+	transform: translateY(-90px);
+}
+.header-fixed.fixed {
+	transform: translateY(00px);
+}
+.header-fixed__wrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.header-fixed .logo img {
+	width: 63px;
+}
+.header-fixed .logo {
+	margin-right: 40px;
+}
+.header-fixed .phone-main {
+	margin-left: 40px;
 }
