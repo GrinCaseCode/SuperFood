@@ -945,7 +945,8 @@ form {
 	border-bottom: 1px #3F4543 solid;
 }
 .link-simple:hover {
-	border-color: transparent;
+	color: #64C355;
+	border-color: #64C355;
 }
 .row_consultation > div:not(:first-child) {
 	padding-top: 13px;
@@ -1077,10 +1078,9 @@ form {
 }
 .breadcrumbs a {
 	color: #3F4543;
-	border-bottom: 1px solid transparent;
 }
 .breadcrumbs a:hover {
-	border-color: #3F4543;
+	color: #64C355;
 }
 .breadcrumbs li::after {
 	content: "/";
@@ -2193,11 +2193,14 @@ input[type=number]
 .documents__item{
 	position: relative;
 	display: block;
+	color: #3f4543;
+}
+.documents__item:hover {
+	color: #64C355;
 }
 .documents__text{
 	font-weight: 600;
 	font-size: 16px;
-	color: #3f4543;
 }
 .documents__img{
 	height: 430px;
