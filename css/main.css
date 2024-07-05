@@ -172,6 +172,7 @@ form {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	cursor: pointer;
 }
 .btn-main:hover {
 	background: #3da12d;
@@ -212,7 +213,7 @@ form {
 .btn-catalog {
 	padding: 0 13px;
 	height: 42px;
-	min-width: 164px;
+	min-width: 138px;
 	color: #000;
 	border: 1px solid #AFBBB5;
 	border-radius: 6px;
