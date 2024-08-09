@@ -2637,3 +2637,19 @@ input[type=number]
 .header-fixed .phone-main {
 	margin-left: 40px;
 }
+
+.check-delivery__descr {
+	padding: 6px 12px;
+	border-radius: 6px;
+	font-size: 13px;
+	line-height: 16px;
+	top: 18px;
+	left: 146px;
+	font-weight: 600;
+	color: #fff;
+	position: absolute;
+	background: #FFB113;
+}
+.check-delivery__wrap {
+	position: relative;
+}

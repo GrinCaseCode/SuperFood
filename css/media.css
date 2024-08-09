@@ -693,6 +693,15 @@
     .header-fixed .phone-main {
         margin-left: 20px;
     }
+
+    .check-delivery__descr {
+        padding: 5px 9px;
+        border-radius: 5px;
+        font-size: 12px;
+        line-height: 14px;
+        top: 15px;
+        left: 130px;
+    }
 }
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
